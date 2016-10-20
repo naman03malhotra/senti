@@ -1,0 +1,235 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+ body {
+              font-family: 'Raleway', sans-serif;
+                padding-top: 10px;
+                padding-bottom: 20px;
+ }
+
+body::-webkit-scrollbar {
+    width: 7px;
+
+}
+ 
+body::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+ 
+body::-webkit-scrollbar-thumb {
+  background-color: #0c84e4;
+  
+      border-radius:3px;
+
+}
+
+
+body::-webkit-scrollbar-thumb:hover{
+background-color:#0c84e4;
+border:1px solid #2192a7;
+}
+body::-webkit-scrollbar-thumb:active{
+background-color:#1a7d90;
+border:1px solid #155965;
+} 
+
+.user-name {
+      font-size: 18px;
+}
+
+.card-footer {
+  padding: 0.75rem 1.25rem;
+  background-color: #fff;
+  border-top: 1px solid rgba(0, 0, 0, 0.12); 
+}
+ 
+
+
+.card-image{
+	text-align: center;
+}
+.card-content {
+	padding: 15px;
+}
+.card-body {
+  min-height: 88px;
+}
+
+.card {
+    border: 0;
+
+  margin: 10px;
+    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.07),0 1px 1px -2px rgba(0,0,0,.02),0 1px 5px 0 rgba(0,0,0,.02);
+     transition: all 0.4s ease;
+     -webkit-transition: all 0.4s ease;
+     min-height: 300px;
+}
+.card:hover
+{
+	
+    border: 0;
+    box-shadow: 0 11px 16px 0 rgba(23,84,111,0.18);
+
+}
+
+.card-footer-btn{
+  margin-top: 8px;
+}
+
+.btn {
+	outline: none;
+}
+
+
+h6 {
+	color:#959595;
+}
+
+.progress {
+ margin-bottom: 0px !important;
+}
+.progress-text {
+  margin-top: 6px !important;
+}
+
+#nprogress .bar {
+    background: #2196f3;
+    position: fixed;
+    z-index: 1031;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+}
+
+
+#nprogress .spinner-icon {
+    width: 18px;
+    height: 18px;
+    box-sizing: border-box;
+    border: solid 2px transparent;
+    border-top-color: #29d;
+    border-left-color: #29d;
+    border-radius: 50%;
+    -webkit-animation: nprogress-spinner 150ms linear infinite;
+    animation: nprogress-spinner 150ms linear infinite;
+}
+
+.navbar {
+
+  margin-bottom: 0px !important;
+}
+
+
+
+/*
+
+m-progress 
+
+*/
+
+
+@-webkit-keyframes ld {
+  0%   { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+@-moz-keyframes ld {
+  0%   { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+@-o-keyframes ld {
+  0%   { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+@keyframes ld {
+  0%   { transform: rotate(0deg) scale(1); }
+  50%  { transform: rotate(180deg) scale(1.1); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+
+.m-progress {
+    position: relative;
+    opacity: .8;
+    color: transparent !important;
+    text-shadow: none !important;
+}
+
+.m-progress:hover,
+.m-progress:active,
+.m-progress:focus {
+    cursor: default;
+    color: transparent;
+    outline: none !important;
+    box-shadow: none;
+}
+
+.m-progress:before {
+    content: '';
+    
+    display: inline-block;
+    
+    position: absolute;
+    background: transparent;
+    border: 1px solid #fff;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-radius: 50%;
+    
+    box-sizing: border-box;
+    
+    top: 50%;
+    left: 50%;
+    margin-top: -12px;
+    margin-left: -12px;
+    
+    width: 24px;
+    height: 24px;
+    
+    -webkit-animation: ld 1s ease-in-out infinite;
+    -moz-animation:    ld 1s ease-in-out infinite;
+    -o-animation:      ld 1s ease-in-out infinite;
+    animation:         ld 1s ease-in-out infinite;
+}
+
+.btn-default.m-progress:before {
+    border-left-color: #333333;
+    border-right-color: #333333;
+}
+
+.btn-lg.m-progress:before {
+    margin-top: -16px;
+    margin-left: -16px;
+    
+    width: 32px;
+    height: 32px;
+}
+
+.btn-sm.m-progress:before {
+    margin-top: -9px;
+    margin-left: -9px;
+    
+    width: 18px;
+    height: 18px;
+}
+
+.btn-xs.m-progress:before {
+    margin-top: -7px;
+    margin-left: -7px;
+    
+    width: 14px;
+    height: 14px;
+}
+
+
+
+
+
+
+
+
