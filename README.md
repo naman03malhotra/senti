@@ -2,7 +2,7 @@
 
 With Senti you can search any hashtag on twitter which are retweeted at least once and analyze its sentiment (positive, negative or neutral).
 
-  > Default hashtag is #custserv
+  >> Default hashtag is #custserv
 # Features
 - Material UI
 - Search for any tweet.
