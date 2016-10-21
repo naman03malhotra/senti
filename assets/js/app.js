@@ -1,14 +1,12 @@
-//alert("WOw zzzz!");
+
 
 
 $ = jQuery = require('jquery');
 require('bootstrap');
-//var sentiment = require("./sentiment.js");
 var NProgress = require('NProgress');
 var htmlTweet = require('html-tweet')()
 
 
-//var analyze_sentiment= require('./sentiment.js');
 
 
 
