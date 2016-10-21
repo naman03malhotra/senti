@@ -6,7 +6,7 @@ With Senti you can search any hashtag on twitter which are retweeted at least on
 
 # Features
 - Material UI
-- Search for any tweet.
+- Search for any hashtag.
 - Anchored hashtags, mentions, URLs and username.
 - Infinte scroll to view previous tweets.
 - Sentiment analysis of the tweets fetched [Powered by HPE- Heaven On Demand](http://www.havenondemand.com/).

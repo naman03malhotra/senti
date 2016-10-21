@@ -1,15 +1,13 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
-//alert("WOw zzzz!");
+
 
 
 $ = jQuery = require('jquery');
 require('bootstrap');
-//var sentiment = require("./sentiment.js");
 var NProgress = require('NProgress');
 var htmlTweet = require('html-tweet')()
 
 
-//var analyze_sentiment= require('./sentiment.js');
 
 
 
@@ -3103,12 +3101,10 @@ var twitterText = require('twitter-text')
   , template = require('lodash.template')
 
 function htmlTweet(options) {
-  
   options = extend(
-    {
-    hashtag: '<a target="_blank" href="https://twitter.com/search?q=%23<%= hashtag %>"><%= hashtag %></a>',
-    mention: '<a target="_blank" href="https://twitter.com/search?q=%40<%= mention %>"><%= mention %></a>', 
-    url:     '<a target="_blank" href="<%= url %>"><%= url %></a>'
+    { hashtag: '<a href=\'#\'><%= hashtag %></a>'
+    , mention: '<a href=\'#\'><%= mention %></a>'
+    , url: '<a href=\'#\'><%= url %></a>'
     }, options)
 
   var hashtagTemplate = template(options.hashtag)
@@ -3122,14 +3118,14 @@ function htmlTweet(options) {
 
     if (hashtags) {
       hashtags.forEach(function (hashtag) {
-        hashtag = hashtag
+        hashtag = '#' + hashtag
         tweet = tweet.replace(hashtag, hashtagTemplate({ hashtag: hashtag }))
       })
     }
 
     if (mentions) {
       mentions.forEach(function (mention) {
-        mention = mention
+        mention = '@' + mention
         tweet = tweet.replace(mention, mentionTemplate({ mention: mention }))
       })
     }
