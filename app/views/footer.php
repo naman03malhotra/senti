@@ -5,9 +5,9 @@
      
       
 
-           <script src="/kayako/bundle.js" type="text/javascript"></script>
+           <script src="bundle.js" type="text/javascript"></script>
 
-           <script src="/kayako/assets/js/sentiment.js" type="text/javascript"></script>
+           <script src="assets/js/sentiment.js" type="text/javascript"></script>
 
     </body>
 </html>

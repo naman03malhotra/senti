@@ -22,7 +22,8 @@ Senti uses a number of open source projects to work properly:
 ### Installation
 
 - Download or clone this repo.
-- Move it to your preferred directory.
+- Move it to your root directory.
+- Although Bundle.js is given if you need to make some changes in app.js and generate new bundle.js, follow the steps below
 
 From your terminal/cmd run, this will load all the dependencies  
 ```
@@ -36,6 +37,8 @@ Enable watch mode for browserify builds (Automatically builds, if there is any c
 ```
 $ node run watch
 ```
+- Add your twitter API keys in  ``` app/config/config.sample.php ``` and rename it to config.php
+- Add your HPE havenOnDemand keys in ``` assets/js/sentiment.sample.js ``` and rename it to sentiment.js
 
 ### Anchored Tweets
 
