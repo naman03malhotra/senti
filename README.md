@@ -6,7 +6,7 @@ With Senti you can search any hashtag on twitter which are retweeted at least on
 
 # Live Demo
 
-  ``` [https://naman-malhotra.rhcloud.com/kayako/] (https://naman-malhotra.rhcloud.com/kayako/) ```
+  [https://naman-malhotra.rhcloud.com/kayako/] (https://naman-malhotra.rhcloud.com/kayako/)
 
 # Features
 - Material UI.
