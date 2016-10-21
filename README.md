@@ -4,9 +4,14 @@ With Senti you can search any hashtag on twitter which are retweeted at least on
 
   > Default hashtag is #custserv
 
+# Live Demo
+
+  ``` [https://naman-malhotra.rhcloud.com/kayako/] (https://naman-malhotra.rhcloud.com/kayako/) ```
+
 # Features
-- Material UI
+- Material UI.
 - Search for any hashtag.
+- Search for multiple hashtags separated by space. (ex- #lol #funny)
 - Anchored hashtags, mentions, URLs and username.
 - Infinte scroll to view previous tweets.
 - Sentiment analysis of the tweets fetched [Powered by HPE- Heaven On Demand](http://www.havenondemand.com/).
