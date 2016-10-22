@@ -11,10 +11,11 @@ With Senti you can search any hashtag on twitter which are retweeted at least on
 # Features
 - Material UI.
 - Search for any hashtag.
-- Search for multiple hashtags separated by space. (ex- #lol #funny)
+- Search for multiple hashtags separated by space. (ex- custserv good)
 - Anchored hashtags, mentions, URLs and username.
 - Infinte scroll to view previous tweets.
 - Sentiment analysis of the tweets fetched [Powered by HPE- Heaven On Demand](http://www.havenondemand.com/).
+- Debugging Mode
 
 ### Dependencies
 
@@ -42,8 +43,10 @@ Enable watch mode for browserify builds (Automatically builds, if there is any c
 ```
 $ node run watch
 ```
-- Add your twitter API keys in  ``` app/config/config-twitter.sample.php ``` and rename it to config-twitter.php
-- Add your HPE havenOnDemand keys in ``` assets/js/sentiment.sample.js ``` and rename it to sentiment.js
+- Add your twitter API keys in  ``` app/config/config-twitter.sample.php ``` and rename it to ```config-twitter.php```
+- Add your HPE havenOnDemand keys in ``` assets/js/sentiment.sample.js ``` and rename it to ```sentiment.js```
+
+
 
 ### Anchored Tweets
 
@@ -56,6 +59,10 @@ For anchored tweets Change the options in (node_modules/html-tweet/index.js) wit
     url:     '<a target="_blank" href="<%= url %>"><%= url %></a>'
     }, options)
 ```
+### Enable Debugging
+- Pass debug=1 as parameter in URL to enable, and see useful error messages
+- Pass debug=0 as parameter to disable debugging
+``` www.example.com?debug=1 ```
 
 ### Contact
 If you have any doubts/queries please connect with me at [https://www.linkedin.com/in/naman03malhotra](https://www.linkedin.com/in/naman03malhotra)

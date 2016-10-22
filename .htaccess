@@ -1,7 +1,12 @@
-ErrorDocument 404.html
-RewriteEngine on 
+RewriteEngine on
 
-
-RewriteCond %{REQUEST_FILENAME} !-d 
-RewriteCond %{REQUEST_FILENAME}\.php -f 
+# avoiding .php extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.*)$ $1.php
+
+
+# Passing each request via index.php
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^ index.php [QSA,L]
