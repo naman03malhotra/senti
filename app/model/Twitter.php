@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Class Twitter extending call TwiiterAPiExchange
+ * Class Twitter extending class TwiiterAPiExchange
  *
  * Fetch Tweets using twitter API
  *
