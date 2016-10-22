@@ -79,7 +79,7 @@ var cardTemplate = '<div class="col-md-4">'+
 
 
  
- /*
+ /**
   * @param string text; Contains plain tweet text
   */
 
