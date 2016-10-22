@@ -107,77 +107,78 @@ var processTextForSentiment = function(text)
 
 var fetchTweets = function(callback,mode) 
 
-  {  
-             
-              // Picks value from hashtag input    
-              var hashtag = $('#myhashtag').val();         
+{  
+       
+        // Picks value from hashtag input    
+        var hashtag = $('#myhashtag').val();         
 
-              // create FormData
-              var formData = new FormData();
-              formData.append('hashtag',hashtag);
+        // create FormData
+        var formData = new FormData();
+        formData.append('hashtag',hashtag);
 
-              // resetting maxAttempts for a new search and appending mode with form data to reset MaxID (see fetchTweets.php)
-              if(mode == 1)
-                  {
-                    formData.append('mode','1');
-                    maxAttempts = maxNumberOfAttempts;
-                  }
-               
+        // resetting maxAttempts for a new search and appending mode with form data to reset MaxID (see fetchTweets.php)
+        if(mode == 1)
+            {
+              formData.append('mode','1');
+              maxAttempts = maxNumberOfAttempts;
+            }
+         
 
-              if (window.XMLHttpRequest)
-                  {
-                    xmlhttp = new XMLHttpRequest(); // code for IE7+, Firefox, Chrome, Opera, Safari
-                  }
-                else
-                  {
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); // code for IE6, IE5
-                  }
+        if (window.XMLHttpRequest)
+            {
+              xmlhttp = new XMLHttpRequest(); // code for IE7+, Firefox, Chrome, Opera, Safari
+            }
+          else
+            {
+              xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); // code for IE6, IE5
+            }
 
-              xmlhttp.onreadystatechange = function()
-                {
-                      if (xmlhttp.readyState == 1)
-                      {                                    
-                         NProgress.start();  // Initiate loadingBar
-                         NProgress.set(0.6);                                   
-                      }
-                    else if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-                      {                                    
-                          var response=JSON.parse(xmlhttp.responseText); // parsing JSON string obtained
-
-                          if(response.query_status === false) //If request fails
-                          {
-                            alert('FATAL Error: '+response.error_msg); // alert msg
-                            return;
-                          }
-
-                          if(response.mytweets.length == 0)  // Check if respose is empty
-                          { 
-
-                            // If Max attempts are exhausted and request is made for a new hashtag not by scroll.
-                            if(maxAttempts-- <= 0 && mode != 0)    
-                              {
-                                  // Display if no result is fetched for a tweet
-                                  $("#populate").html('<h1 class="text-center">No tweets found for this hashtag</h1>');                                   
-                                  NProgress.done();
-                                  return;
-                              }
-                            else  
-                              fetchTweets(displayCards); // Retry Until maxAttempts < 0 
-                          }
-                          else
-                          {                                    
-                              NProgress.set(0.8);
-                              callback(response); // Fire Callback
-                              NProgress.done();   // End Loading Bar
-                          }   
-                      }
-                 }
-              // Send Call only if Attempts are left.
-              if(maxAttempts >= 0)  
-                {
-                  xmlhttp.open("POST","fetch",true);
-                  xmlhttp.send(formData); // send hashtag and mode.
+        xmlhttp.onreadystatechange = function()
+          {
+                if (xmlhttp.readyState == 1)
+                {                                    
+                   NProgress.start();  // Initiate loadingBar
+                   NProgress.set(0.6);                                   
                 }
+              else if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                {                                    
+                    var response=JSON.parse(xmlhttp.responseText); // parsing JSON string obtained
+
+                    if(response.query_status === false) //If request fails
+                    {
+                      alert('FATAL Error: '+response.error_msg); // alert msg
+                      return;
+                    }
+
+                    if(response.mytweets.length == 0)  // Check if respose is empty
+                    { 
+
+                      // If Max attempts are exhausted and request is made for a new hashtag not by scroll.
+                      if(maxAttempts-- <= 0 && mode != 0)    
+                        {
+                            // Display if no result is fetched for a tweet
+                            $("#populate").html('<h1 class="text-center">No tweets found for this hashtag</h1>');                                   
+                            NProgress.done();
+                            return;
+                        }
+                      else  
+                        fetchTweets(displayCards); // Retry Until maxAttempts < 0 
+                    }
+                    else
+                    {                                    
+                        NProgress.set(0.8);
+                        callback(response); // Fire Callback
+                        NProgress.done();   // End Loading Bar
+                    }   
+                }
+           }
+        // Send Call only if Attempts are left.
+        if(maxAttempts >= 0)  
+          {
+            xmlhttp.open("POST","fetch",true);
+            xmlhttp.send(formData); // send hashtag and mode.
+          }
+          
   }
 
 
@@ -190,34 +191,34 @@ var fetchTweets = function(callback,mode)
 
 var displayCards = function (tweets)
 
-  {  
-  for(var i = 0;i < tweets.mytweets.length;i++) 
-    {        
-        // Create a Row (bootstrap), after 3 rows are displayed
-      
-        if (counter%3 == 0) 
-        {
-            var rowDiv = $("<div/>", {'class': 'row'});
-            $("#populate").append(rowDiv);    // Append Row 
-        }
+{  
+    for(var i = 0;i < tweets.mytweets.length;i++) 
+      {        
+          // Create a Row (bootstrap), after 3 rows are displayed
+        
+          if (counter%3 == 0) 
+          {
+              var rowDiv = $("<div/>", {'class': 'row'});
+              $("#populate").append(rowDiv);    // Append Row 
+          }
 
-        var tweeterCard = $(cardTemplate);
-        var tweetTxt = tweets.mytweets[i].text; //extracting tweet text
-        var screenName = tweets.mytweets[i].screen_name; 
-        html_Tweet = htmlTweet(tweetTxt.replace(/"/g, '\&quot;')); // Convert plain text tweet to HTML tweet and escape double quotes
-        textForSentiment = processTextForSentiment(tweetTxt);  // send tweet text to process for sentimental analysis
+          var tweeterCard = $(cardTemplate);
+          var tweetTxt = tweets.mytweets[i].text; //extracting tweet text
+          var screenName = tweets.mytweets[i].screen_name; 
+          html_Tweet = htmlTweet(tweetTxt.replace(/"/g, '\&quot;')); // Convert plain text tweet to HTML tweet and escape double quotes
+          textForSentiment = processTextForSentiment(tweetTxt);  // send tweet text to process for sentimental analysis
 
-        tweeterCard.find('.user-img').attr("src",tweets.mytweets[i].img);
-        tweeterCard.find('.user-name').html('<a target="_blank" href="https://twitter.com/search?q=%40'+screenName+'">@'+screenName+'</a>');
-        tweeterCard.find('.user-rt').text(tweets.mytweets[i].rt_count);
-        tweeterCard.find('.card-body').html('<h6>'+html_Tweet+'</h6>');
-        tweeterCard.find('.card-footer-btn').attr('onClick', 'analyze_sentiment(\''+textForSentiment+'\',this)');
-              
-        $(".row").last().append(tweeterCard);
-        counter++;
-    }
+          tweeterCard.find('.user-img').attr("src",tweets.mytweets[i].img);
+          tweeterCard.find('.user-name').html('<a target="_blank" href="https://twitter.com/search?q=%40'+screenName+'">@'+screenName+'</a>');
+          tweeterCard.find('.user-rt').text(tweets.mytweets[i].rt_count);
+          tweeterCard.find('.card-body').html('<h6>'+html_Tweet+'</h6>');
+          tweeterCard.find('.card-footer-btn').attr('onClick', 'analyze_sentiment(\''+textForSentiment+'\',this)');
+                
+          $(".row").last().append(tweeterCard);
+          counter++;
+      }
 
-  }
+}
   
 /*
   Fetch Tweets as soon as page loads

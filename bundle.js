@@ -80,8 +80,8 @@ var cardTemplate = '<div class="col-md-4">'+
 
 
  
- /*
-  *@param string text; Contains plain tweet text
+ /**
+  * @param string text; Contains plain tweet text
   */
 
 var processTextForSentiment = function(text) 
@@ -100,8 +100,8 @@ var processTextForSentiment = function(text)
  /**
   * function for fetching tweets
   *
-  *@callback - requests callback
-  *@param int            
+  * @callback - requests callback
+  * @param int            
   * mode = 1; call made from input i.e new hashtag is searched; resetting maxNumberOfAttempts 
   * mode = 0; call made from scrolling, no need to reset, work on same hashtag.
   */
@@ -191,34 +191,34 @@ var fetchTweets = function(callback,mode)
 
 var displayCards = function (tweets)
 
-  {  
-  for(var i = 0;i < tweets.mytweets.length;i++) 
-    {        
-        // Create a Row (bootstrap), after 3 rows are displayed
-      
-        if (counter%3 == 0) 
-        {
-            var rowDiv = $("<div/>", {'class': 'row'});
-            $("#populate").append(rowDiv);    // Append Row 
-        }
+{  
+    for(var i = 0;i < tweets.mytweets.length;i++) 
+      {        
+          // Create a Row (bootstrap), after 3 rows are displayed
+        
+          if (counter%3 == 0) 
+          {
+              var rowDiv = $("<div/>", {'class': 'row'});
+              $("#populate").append(rowDiv);    // Append Row 
+          }
 
-        var tweeterCard = $(cardTemplate);
-        var tweetTxt = tweets.mytweets[i].text; //extracting tweet text
-        var screenName = tweets.mytweets[i].screen_name; 
-        html_Tweet = htmlTweet(tweetTxt.replace(/"/g, '\&quot;')); // Convert plain text tweet to HTML tweet and escape double quotes
-        textForSentiment = processTextForSentiment(tweetTxt);  // send tweet text to process for sentimental analysis
+          var tweeterCard = $(cardTemplate);
+          var tweetTxt = tweets.mytweets[i].text; //extracting tweet text
+          var screenName = tweets.mytweets[i].screen_name; 
+          html_Tweet = htmlTweet(tweetTxt.replace(/"/g, '\&quot;')); // Convert plain text tweet to HTML tweet and escape double quotes
+          textForSentiment = processTextForSentiment(tweetTxt);  // send tweet text to process for sentimental analysis
 
-        tweeterCard.find('.user-img').attr("src",tweets.mytweets[i].img);
-        tweeterCard.find('.user-name').html('<a target="_blank" href="https://twitter.com/search?q=%40'+screenName+'">@'+screenName+'</a>');
-        tweeterCard.find('.user-rt').text(tweets.mytweets[i].rt_count);
-        tweeterCard.find('.card-body').html('<h6>'+html_Tweet+'</h6>');
-        tweeterCard.find('.card-footer-btn').attr('onClick', 'analyze_sentiment(\''+textForSentiment+'\',this)');
-              
-        $(".row").last().append(tweeterCard);
-        counter++;
-    }
+          tweeterCard.find('.user-img').attr("src",tweets.mytweets[i].img);
+          tweeterCard.find('.user-name').html('<a target="_blank" href="https://twitter.com/search?q=%40'+screenName+'">@'+screenName+'</a>');
+          tweeterCard.find('.user-rt').text(tweets.mytweets[i].rt_count);
+          tweeterCard.find('.card-body').html('<h6>'+html_Tweet+'</h6>');
+          tweeterCard.find('.card-footer-btn').attr('onClick', 'analyze_sentiment(\''+textForSentiment+'\',this)');
+                
+          $(".row").last().append(tweeterCard);
+          counter++;
+      }
 
-  }
+}
   
 /*
   Fetch Tweets as soon as page loads
