@@ -80,7 +80,7 @@ var cardTemplate = '<div class="col-md-4">'+
 
  
  /*
-  *@param string text; Contains plain tweet text
+  * @param string text; Contains plain tweet text
   */
 
 var processTextForSentiment = function(text) 
@@ -99,8 +99,8 @@ var processTextForSentiment = function(text)
  /**
   * function for fetching tweets
   *
-  *@callback - requests callback
-  *@param int            
+  * @callback - requests callback
+  * @param int            
   * mode = 1; call made from input i.e new hashtag is searched; resetting maxNumberOfAttempts 
   * mode = 0; call made from scrolling, no need to reset, work on same hashtag.
   */
