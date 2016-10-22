@@ -62,6 +62,8 @@ For anchored tweets Change the options in (node_modules/html-tweet/index.js) wit
 ### Enable Debugging
 - Pass debug=1 as parameter in URL to enable, and see useful error messages
 - Pass debug=0 as parameter to disable debugging
+
+#####Example
 ``` www.example.com?debug=1 ```
 
 ### Contact
