@@ -108,77 +108,78 @@ var processTextForSentiment = function(text)
 
 var fetchTweets = function(callback,mode) 
 
-  {  
-             
-              // Picks value from hashtag input    
-              var hashtag = $('#myhashtag').val();         
+{  
+       
+        // Picks value from hashtag input    
+        var hashtag = $('#myhashtag').val();         
 
-              // create FormData
-              var formData = new FormData();
-              formData.append('hashtag',hashtag);
+        // create FormData
+        var formData = new FormData();
+        formData.append('hashtag',hashtag);
 
-              // resetting maxAttempts for a new search and appending mode with form data to reset MaxID (see fetchTweets.php)
-              if(mode == 1)
-                  {
-                    formData.append('mode','1');
-                    maxAttempts = maxNumberOfAttempts;
-                  }
-               
+        // resetting maxAttempts for a new search and appending mode with form data to reset MaxID (see fetchTweets.php)
+        if(mode == 1)
+            {
+              formData.append('mode','1');
+              maxAttempts = maxNumberOfAttempts;
+            }
+         
 
-              if (window.XMLHttpRequest)
-                  {
-                    xmlhttp = new XMLHttpRequest(); // code for IE7+, Firefox, Chrome, Opera, Safari
-                  }
-                else
-                  {
-                    xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); // code for IE6, IE5
-                  }
+        if (window.XMLHttpRequest)
+            {
+              xmlhttp = new XMLHttpRequest(); // code for IE7+, Firefox, Chrome, Opera, Safari
+            }
+          else
+            {
+              xmlhttp = new ActiveXObject("Microsoft.XMLHTTP"); // code for IE6, IE5
+            }
 
-              xmlhttp.onreadystatechange = function()
-                {
-                      if (xmlhttp.readyState == 1)
-                      {                                    
-                         NProgress.start();  // Initiate loadingBar
-                         NProgress.set(0.6);                                   
-                      }
-                    else if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
-                      {                                    
-                          var response=JSON.parse(xmlhttp.responseText); // parsing JSON string obtained
-
-                          if(response.query_status === false) //If request fails
-                          {
-                            alert('FATAL Error: '+response.error_msg); // alert msg
-                            return;
-                          }
-
-                          if(response.mytweets.length == 0)  // Check if respose is empty
-                          { 
-
-                            // If Max attempts are exhausted and request is made for a new hashtag not by scroll.
-                            if(maxAttempts-- <= 0 && mode != 0)    
-                              {
-                                  // Display if no result is fetched for a tweet
-                                  $("#populate").html('<h1 class="text-center">No tweets found for this hashtag</h1>');                                   
-                                  NProgress.done();
-                                  return;
-                              }
-                            else  
-                              fetchTweets(displayCards); // Retry Until maxAttempts < 0 
-                          }
-                          else
-                          {                                    
-                              NProgress.set(0.8);
-                              callback(response); // Fire Callback
-                              NProgress.done();   // End Loading Bar
-                          }   
-                      }
-                 }
-              // Send Call only if Attempts are left.
-              if(maxAttempts >= 0)  
-                {
-                  xmlhttp.open("POST","fetch",true);
-                  xmlhttp.send(formData); // send hashtag and mode.
+        xmlhttp.onreadystatechange = function()
+          {
+                if (xmlhttp.readyState == 1)
+                {                                    
+                   NProgress.start();  // Initiate loadingBar
+                   NProgress.set(0.6);                                   
                 }
+              else if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                {                                    
+                    var response=JSON.parse(xmlhttp.responseText); // parsing JSON string obtained
+
+                    if(response.query_status === false) //If request fails
+                    {
+                      alert('FATAL Error: '+response.error_msg); // alert msg
+                      return;
+                    }
+
+                    if(response.mytweets.length == 0)  // Check if respose is empty
+                    { 
+
+                      // If Max attempts are exhausted and request is made for a new hashtag not by scroll.
+                      if(maxAttempts-- <= 0 && mode != 0)    
+                        {
+                            // Display if no result is fetched for a tweet
+                            $("#populate").html('<h1 class="text-center">No tweets found for this hashtag</h1>');                                   
+                            NProgress.done();
+                            return;
+                        }
+                      else  
+                        fetchTweets(displayCards); // Retry Until maxAttempts < 0 
+                    }
+                    else
+                    {                                    
+                        NProgress.set(0.8);
+                        callback(response); // Fire Callback
+                        NProgress.done();   // End Loading Bar
+                    }   
+                }
+           }
+        // Send Call only if Attempts are left.
+        if(maxAttempts >= 0)  
+          {
+            xmlhttp.open("POST","fetch",true);
+            xmlhttp.send(formData); // send hashtag and mode.
+          }
+          
   }
 
 
@@ -753,11 +754,13 @@ var twitterText = require('twitter-text')
   , template = require('lodash.template')
 
 function htmlTweet(options) {
-  options = extend(
-    { hashtag: '<a href=\'#\'><%= hashtag %></a>'
-    , mention: '<a href=\'#\'><%= mention %></a>'
-    , url: '<a href=\'#\'><%= url %></a>'
-    }, options)
+  
+   options = extend(
+    {
+    hashtag: '<a target="_blank" href="https://twitter.com/search?q=%23<%= hashtag %>"><%= hashtag %></a>',
+    mention: '<a target="_blank" href="https://twitter.com/search?q=%40<%= mention %>"><%= mention %></a>', 
+    url:     '<a target="_blank" href="<%= url %>"><%= url %></a>'
+    }, options) 
 
   var hashtagTemplate = template(options.hashtag)
     , mentionTemplate = template(options.mention)
@@ -770,14 +773,14 @@ function htmlTweet(options) {
 
     if (hashtags) {
       hashtags.forEach(function (hashtag) {
-        hashtag = '#' + hashtag
+        hashtag = hashtag
         tweet = tweet.replace(hashtag, hashtagTemplate({ hashtag: hashtag }))
       })
     }
 
     if (mentions) {
       mentions.forEach(function (mention) {
-        mention = '@' + mention
+        mention = mention
         tweet = tweet.replace(mention, mentionTemplate({ mention: mention }))
       })
     }
