@@ -81,6 +81,7 @@ var cardTemplate = '<div class="col-md-4">'+
  
  /**
   * @param string text; Contains plain tweet text
+  * @return sentiText string; processed text
   */
 
 var processTextForSentiment = function(text) 
