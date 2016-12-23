@@ -70,4 +70,4 @@ For anchored tweets Change the options in (node_modules/html-tweet/index.js) wit
 ``` www.example.com?debug=1 ```
 
 ### Contact
-If you have any doubts/queries please connect with me at [https://www.linkedin.com/in/naman03malhotra](https://www.linkedin.com/in/naman03malhotra)
+If you have any doubts/queries please connect with me at [https://letsconnect.co](https://letsconnect.co)
