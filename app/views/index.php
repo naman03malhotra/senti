@@ -3,10 +3,10 @@
 
 <div class="jumbotron">
   <div class="container">
-    <h1>Kayako Twitter Challenge</h1>
-    <p>
-      Search For Any Hashtag Below
-    </p>
+    <h3>Senti helps you analyze what your consumers think about your brand.</h3>
+        <p>
+            Search For Any Hashtag Below
+        </p>
     
     <div class="col-md-6 col-lg-6">
      <div class="form-group">

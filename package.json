@@ -1,7 +1,7 @@
 {
   "name": "Senti",
   "version": "1.0.0",
-  "description": "Kayako Challenge",
+  "description": "Senti App",
   "main": "app/media/js/app.js",
   "scripts": {
     "build": "browserify assets/js/app.js -o bundle.js",

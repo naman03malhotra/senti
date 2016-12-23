@@ -1,4 +1,4 @@
-# Kayako Twitter Challenge (Senti)
+# Senti App
 
 With Senti you can search any hashtag on twitter which are retweeted at least once and analyze its sentiment (positive, negative or neutral).
 
@@ -6,7 +6,7 @@ With Senti you can search any hashtag on twitter which are retweeted at least on
 
 # Live Demo
 
-  [https://naman-malhotra.rhcloud.com/kayako/] (https://naman-malhotra.rhcloud.com/kayako/)
+  [https://letsconnect.co/senti/] (https://letsconnect.co/senti/)
 
 # Features
 - Material UI.

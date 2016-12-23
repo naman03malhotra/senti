@@ -49,7 +49,7 @@
       <div class="container">
         <div class="navbar-header">
          
-          <a class="navbar-brand" href="#">Kayako Challenge</a>
+          <a class="navbar-brand" href="#">Senti</a>
       </div>
       <div id="navbar" class="navbar-collapse collapse">
           

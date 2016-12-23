@@ -1,5 +1,5 @@
    <footer>
-   	<center><p>&copy; Kayako 2016</p></center>
+   	<center><p>&copy; Senti 2016</p></center>
    	
    </footer>
    
