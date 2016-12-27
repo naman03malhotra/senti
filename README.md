@@ -2,7 +2,7 @@
 
 Senti helps you analyze what your consumers think about your brand. It searches for given hashtag and analyze its sentiment.
 
-  > Default hashtag is #custserv
+  > Default hashtag is #trump
 
 # Live Demo
 
