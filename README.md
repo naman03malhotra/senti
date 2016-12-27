@@ -1,6 +1,6 @@
 # Senti App
 
-With Senti you can search any hashtag on twitter which are retweeted at least once and analyze its sentiment (positive, negative or neutral).
+Senti helps you analyze what your consumers think about your brand. It searches for given hashtag and analyze its sentiment.
 
   > Default hashtag is #custserv
 
@@ -16,6 +16,8 @@ With Senti you can search any hashtag on twitter which are retweeted at least on
 - Infinte scroll to view previous tweets.
 - Sentiment analysis of the tweets fetched [Powered by HPE- Heaven On Demand](http://www.havenondemand.com/).
 - Debugging Mode
+
+### This is just a protoype, the app is still under development, new version will be realesed soon. Stay tuned.
 
 ### Dependencies
 
