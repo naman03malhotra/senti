@@ -12,7 +12,7 @@
      <div class="form-group">
       <div class="input-group">
         <span class="input-group-addon">#</span>
-        <input type="text" class="form-control" id="myhashtag" value="custserv">
+        <input type="text" class="form-control" id="myhashtag" value="trump">
         <span class="input-group-btn">
           <a class="btn btn-primary" id="goTrigger">GO &raquo;</a>
         </span>
