@@ -6,7 +6,7 @@ Senti helps you analyze what your consumers think about your brand. It searches 
 
 # Live Demo
 
-  [https://letsconnect.co/senti/] (https://letsconnect.co/senti/)
+  [https://letsconnect.co/senti/] (http://letsconnct-port-letsconnect.193b.starter-ca-central-1.openshiftapps.com/senti/)
 
 # Features
 - Material UI.
